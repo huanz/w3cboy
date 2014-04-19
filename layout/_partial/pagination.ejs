@@ -1,0 +1,11 @@
+<% if (page.total > 1){ %>
+<div class="post page">
+    更多
+    <div class="post-info">
+    	<%- paginator({
+			prev_text: '&laquo; 上一页',
+			next_text: '下一页 &raquo;'
+		}) %>           
+    </div>
+</div>
+<% } %>

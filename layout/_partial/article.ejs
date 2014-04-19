@@ -1,0 +1,74 @@
+<% if (post) { %>
+<div class="show">
+    <h1 class="show-tit"><%- item.title %></h1>
+    <%- item.content %> 
+</div>
+<div class="show-info">
+    日期：<%= item.date.format(config.date_format) %>&nbsp;&nbsp;
+    分类：<% item.categories.forEach(function(category) { %>
+    <a href="<%= config.root + category.path %>" title="分类：<%= category.name %>"><%= category.name %></a>&nbsp;&nbsp;
+    <% }); %>
+    标签：
+    <% item.tags.forEach(function(tag) { %>
+    <a href="<%= config.root + tag.path %>" title="<%= tag.name %>"><%= tag.name %></a>&nbsp;&nbsp;
+    <% }); %>
+</div>
+<%- partial('_post/comment') %>
+<script>
+    <!-- baidu share start-->
+    window._bd_share_config = {
+        "common":{
+            "bdSnsKey":{},
+            "bdText":"",
+            "bdMini":"2",
+            "bdMiniList":[
+                "tsina",
+                "qzone",
+                "renren",
+                "weixin",
+                "sqq",
+                "tqq",
+                "douban",
+                "print"
+            ],
+            "bdPic":"",
+            "bdStyle":"0",
+            "bdSize":"16"
+        },
+        "slide":{
+            "type":"slide",
+            "bdImg":"6",
+            "bdPos":"right",
+            "bdTop":"152.5"
+        },
+        "image":{
+            "viewList":["qzone","tsina","tqq","renren","weixin"],
+            "viewText":"分享到：",
+            "viewSize":"16"
+        },
+        "selectShare":{
+            "bdContainerClass":null,
+            "bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]
+        }
+    };
+
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    <!-- baidu share end-->
+    <!-- duoshuo start-->
+    var duoshuoQuery = {short_name:"<%= theme.duoshuo.short_name %>"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    <!-- duoshuo end-->
+</script>
+<% } else { %>
+<% if(/^message\//.test(item.path)){ %>
+<%- partial('message') %>
+<% }else{ %>
+<%- item.content %> 
+<% }} %>

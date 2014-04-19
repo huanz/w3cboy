@@ -1,0 +1,35 @@
+	<div id="header">
+        <div class="container">
+            <ul id="nav">
+                <li><a href="/" title="首页" class="active">首页</a></li>
+                <% if (site.categories.length){ %>
+                <li>
+                    <a href="" title="分类" <% if(is_category()){ %>class="active"<% } %>>分类</a>
+                    <div class="subnav">
+                        <% site.categories.sort('name').each(function(item){ %>
+                        <a href="<%- config.root %><%- item.path %>" title="<%= item.name %>"><%= item.name %></a>
+                        <% }); %>
+                    </div>
+                </li>
+                <% } %>
+                <% if (site.tags.length){ %>
+                <li><a href="" title="标签" <% if(is_tag()){ %>class="active"<% } %>>标签</a>
+                    <div class="subnav">
+                        <%- tagcloud() %>
+                    </div>
+                </li>
+                <% } %>
+                <% for (var i in theme.menu){ %>
+                	<li><a href="<%- theme.menu[i] %>" title="<%= i %>"><%= i %></a></li>
+                <% } %>
+            </ul>
+            <div id="search">
+            	<form action="//google.com/search" method="get" accept-charset="UTF-8">
+            		<input type="hidden" name="q" value="site:http://w3cboy.com">
+                	<input type="text" name="q" results="0" placeholder="请输入搜索关键词"/>
+                	<button type="submit"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+

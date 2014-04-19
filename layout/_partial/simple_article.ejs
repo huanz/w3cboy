@@ -1,0 +1,9 @@
+<div class="post">
+    <h2 class="post-tit"><%= item.title %></h2>
+    <div class="post-des"><%- item.excerpt %></div>
+    <% if (item.link){ %>
+    <a href="<%- item.link %>" target="_blank" class="post-info"><%= item.date %></a>
+    <% } else { %>
+    <a href="<%- config.root %><%- item.path %>" target="_blank" class="post-info"><%= item.date.format('MM月DD日') %></a>
+    <% } %>
+</div>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html <% if (config.language) { %>lang="<%= config.language %>"<% } %>>
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="YbtNWYJmADBsINeWmNtqHnBPDVhVVGyidwhEmDzBtFE" />
+  <%
+  var title = page.title;
+
+  if (is_archive()){
+    title = 'Archives';
+
+    if (is_month()){
+      title += ': ' + page.year + '/' + page.month;
+    } else if (is_year()){
+      title += ': ' + page.year;
+    }
+  } else if (is_category()){
+    title = 'Category: ' + page.category;
+  } else if (is_tag()){
+    title = 'Tag: ' + page.tag;
+  }
+  %>
+    <title><%= theme.site.title %><% if (title){ %> | <%= title %><% } %></title>
+    <% if (theme.site.author){ %>
+    <meta name="author" content="<%= theme.site.author %>"><% } %>
+    <% if (page.description){ %>
+    <meta name="description" content="<%= page.description %>">
+    <% } else if (theme.site.description){ %>
+    <meta name="description" content="<%= theme.site.description %>">
+    <% } else if (page.excerpt){ %>
+    <meta name="description" content="<%= strip_html(page.excerpt).replace(/^\s*/, '').replace(/\s*$/, '') %>">
+    <% } else if (page.content){ %>
+    <meta name="description" content="<%= strip_html(page.content).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 150) %>">
+    <% } %>
+	<% if (page.keywords){ %><meta name="keywords" content="<%= page.keywords %>"><% } %>
+	<% if (theme.site.favicon){ %>
+    <link rel="icon" href="<%- theme.site.favicon %>">
+    <% } %>
+    <% if (config.feed){ %>
+    <link rel="alternative" href="<%- config.feed.path %>" title="<%= theme.site.title %>" type="application/atom+xml">
+    <% } %>
+    <link rel="stylesheet" href="http://blog.u.qiniudn.com/css/style.min.css" media="screen" type="text/css">
+</head>

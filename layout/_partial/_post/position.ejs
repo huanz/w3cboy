@@ -1,0 +1,13 @@
+<div class="position">
+	<a href="<%- config.root %>">网站首页</a> / 
+	<% if (item.categories && item.categories.length > 0){ %>
+    	<%
+        	var cats = [];
+        	item.categories.forEach(function(cat){
+            	cats.push('<a href="' + config.root + cat.path + '">' + cat.name + '</a>');
+        	});
+    	%>
+    	<%- cats.join(' & ') + '/' %>
+	<% } %>
+	<%- partial('link',{ linkname: item.title}) %>
+</div>

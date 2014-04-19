@@ -1,0 +1,36 @@
+<div class="time-line">
+   <h1 class="time-tit"><i>&copy;</i>w3cboy日志更新记录</h1>
+<%
+   var yearmonth;
+   var last_yearmonth = "1970-01";
+   var is_first_year = 1;
+
+   page.posts.each(function(item){
+      yearmonth = item.date.format("YYYY-MM");
+      if (yearmonth != last_yearmonth){
+         if (!is_first_year) {
+%>
+</ul>
+</div>
+         <% } %>
+         <% is_first_year = 0 %>
+         <div class="time-year">
+            <h2><%= yearmonth %><i></i></h2>
+                <ul class="time-list">
+         <% last_yearmonth = yearmonth; %>
+      <% } %>
+      <li class="time-cls">
+            <span class="date"><%= item.date.format("MM月DD日") %></span>
+            <span class="circle"><span><i></i></span></span>
+            <% if (item.link){ %>
+            <a href="<%- item.link %>" class="intro" title="<%= item.title %>"  target="_blank"><%= item.title %></a>
+            <% } else { %>
+            <a href="<%- config.root %><%- item.path %>" class="intro" title="<%= item.title %>"  target="_blank"><%= item.title %></a>
+            <% } %>
+            <div class="des">
+               <%- item.excerpt %>
+            </div>
+      </li>
+<% }); %>
+</ul>
+</div>

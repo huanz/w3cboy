@@ -1,0 +1,5 @@
+<% if (item.link){ %>
+	<a href="<%- item.link %>" target="_blank"><%= linkname %></a>
+<% } else { %>
+	<a href="<%- config.root %><%- item.path %>"><%= linkname %></a>
+<% } %>

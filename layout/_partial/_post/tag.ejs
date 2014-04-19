@@ -1,0 +1,6 @@
+<ul class="meta-tags">
+            <li><i class="i-tag"></i></li>
+			<% item.tags.forEach(function(tag) { %>
+				<li><a href="<%= config.root + tag.path %>"><%= tag.name %></a>&nbsp;&nbsp;</li>
+             <% }); %>
+        </ul>

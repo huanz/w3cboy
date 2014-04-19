@@ -1,0 +1,66 @@
+# Site
+site:
+  author: w3cboy
+  title: w3cboy
+  favicon: http://blog.u.qiniudn.com/images/favicon.ico
+  logo: images/logo.gif
+  keywords: 个人博客，计算机技术，web前端，html，css，sass，javascript，nodejs，java，php，python
+  description: 个人博客，菜鸟程序员，爱各种折腾计算机技术，web前端，html，css，sass，javascript，nodejs，java，php，python,此博客将书写菜鸟的折腾之路。欢迎各种志同道合的伙伴前来交流。
+
+# Header Nav
+menu:
+  归档: /archives/
+  留言: /message/
+  关于: /about/
+
+excerpt_link: 阅读全文>>
+
+plugins:
+- hexo-generator-feed
+- hexo-generator-sitemap
+
+# Widgets
+widgets:
+- greeting
+- search
+- tag
+- archive
+- hot_posts
+- recent_visitors
+- links
+
+# Links
+links:
+  cnode: http://cnodejs.org/
+  前端乱炖: http://www.html-js.com/
+  v2ex: http://www.v2ex.com/
+  红豆园: http://yuan.rednode.cn/
+  Express中文社区: http://expressjs.jser.us/
+  w3cfuns: http://www.w3cfuns.com/
+  w3cplus: http://www.w3cplus.com/
+
+# Socials
+socials:
+  github: https://github.com/huanz
+  google: https://plus.google.com/u/0/
+  weibo: http://weibo.com/u/2335228667
+  renren: http://www.renren.com/344127789
+  douban: http://www.douban.com/people/65043156/
+  mail: http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=h7Wxt7Kzt7W0tMf29qnk6Oo
+  qq: http://sighttp.qq.com/authd?IDKEY=bb4d609b06dc27a08ad5c3fbe9a0175a008f64ff526e5faf
+
+# Comment
+duoshuo: 
+  enable: true
+  short_name: yhzblog
+
+# Share button
+jiathis:
+  enable: false
+  id: 1883274
+  sina: 2335228667
+
+# Analytics
+google_analytics:
+  id: UA-49034721-1
+  site: w3cboy.com
