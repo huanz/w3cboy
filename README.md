@@ -2,7 +2,7 @@
 
 我的hexo博客主题
 
-演示地址：[w3cboy.com](http://w3cboy.com/)
+演示地址：[github.w3cboy.com](http://github.w3cboy.com/)
 
 > 注：里面的部分ejs文件已经没用了，但是我没有在主题里删掉
 
